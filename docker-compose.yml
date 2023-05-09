@@ -22,6 +22,8 @@ services:
 
     server:
         image: wordpress:latest
+        depends_on:
+            - mysql
         container_name: actividadintegradora-wordpress-6.1.1
         ports:
             - "4282:80"
@@ -32,8 +34,6 @@ services:
             WORDPRESS_DB_PASSWORD: aleks123
             WORDPRESS_DB_NAME: wordpress
             WORDPRESS_DB_HOST: ds-wordpress-6.1.1-mysql
-        depends_on:
-            - mysql
         networks:
             - actividadintegradora-wordpress-6.1.1-net
 
